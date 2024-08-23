@@ -53,8 +53,9 @@ st.markdown("""
 4. Select **More**.
 5. Tap **Export Chat**.
 6. Choose **Without Media** to get a smaller file size.
-7. Save or email the TXT file to yourself.
-8. Upload the TXT file here to analyze your chat data.
+7. Unzip Your file. Only txt. 
+8. Save or email the TXT file to yourself.
+9. Upload the TXT file here to analyze your chat data.
 """)
 
 uploaded_file = st.file_uploader("Upload your WhatsApp chat text file", type="txt")
