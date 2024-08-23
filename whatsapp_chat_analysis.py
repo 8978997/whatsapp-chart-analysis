@@ -140,7 +140,7 @@ if uploaded_file is not None:
 
     st.subheader('7. How do message lengths vary?')
     plt.figure(figsize=(10, 6))
-    sns.histplot(df['Message_Length'], bins=50, kde=True, color='purple', rug=True)
+    sns.histplot(df['Message_Length'], bins=50, kde=True, color='purple')
     plt.xlabel('Message Length', fontsize=12)
     plt.ylabel('Frequency', fontsize=12)
     plt.title('Distribution of Message Lengths', fontsize=16, weight='bold')
