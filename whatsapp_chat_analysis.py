@@ -6,11 +6,7 @@ from wordcloud import WordCloud
 import zipfile
 import re
 from collections import Counter
-import nltk
 from nltk.corpus import stopwords
-
-# Download NLTK data
-nltk.download('stopwords')
 
 # Function to process the uploaded file
 def process_chat(file):
@@ -105,6 +101,7 @@ if uploaded_file is not None:
     plt.xticks(rotation=90)
     st.pyplot(plt)
 
+    stop_words = set(stopwords.words('english'))
     st.subheader('6. What are the most common words used by a specific sender?')
     sender_name = st.selectbox('Select a sender', df['Sender'].unique())
     sender_messages = df[df['Sender'] == sender_name]['Message']
@@ -140,6 +137,5 @@ if uploaded_file is not None:
 
 # Running the Streamlit app
 if __name__ == "__main__":
-    st.set_option('deprecation.showPyplotGlobalUse', False)
     st.sidebar.info("Upload your WhatsApp chat zip file to generate visualizations")
     st.markdown("This app generates various visualizations from your WhatsApp chat data.")
