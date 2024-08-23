@@ -3,20 +3,13 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 from wordcloud import WordCloud
-import zipfile
 import re
 from collections import Counter
 from nltk.corpus import stopwords
 
-# Function to process the uploaded file
+# Function to process the uploaded text file
 def process_chat(file):
-    chat_text = ""
-    
-    with zipfile.ZipFile(file, 'r') as zip_ref:
-        for file_name in zip_ref.namelist():
-            if file_name.endswith('.txt'):
-                with zip_ref.open(file_name) as f:
-                    chat_text = f.read().decode('utf-8')
+    chat_text = file.read().decode('utf-8')
     
     dates = []
     times = []
@@ -48,11 +41,11 @@ def process_chat(file):
     return df
 
 # Streamlit app layout
-st.title('WhatsApp Chat Analysis Developed by Imad ud din khattak')
+st.title('WhatsApp Chat Analysis Developed by Imad ud din Khattak')
 
-# Instructions for downloading the WhatsApp chat ZIP file
+# Instructions for downloading the WhatsApp chat text file
 st.markdown("""
-### How to Download Your WhatsApp Chat as a ZIP File:
+### How to Download Your WhatsApp Chat as a Text File:
 
 1. Open WhatsApp on your phone.
 2. Go to the chat you want to export.
@@ -60,11 +53,11 @@ st.markdown("""
 4. Select **More**.
 5. Tap **Export Chat**.
 6. Choose **Without Media** to get a smaller file size.
-7. Save or email the ZIP file to yourself.
-8. Upload the ZIP file here to analyze your chat data.
+7. Save or email the TXT file to yourself.
+8. Upload the TXT file here to analyze your chat data.
 """)
 
-uploaded_file = st.file_uploader("Upload your WhatsApp chat ZIP file", type="zip")
+uploaded_file = st.file_uploader("Upload your WhatsApp chat text file", type="txt")
 
 if uploaded_file is not None:
     df = process_chat(uploaded_file)
@@ -161,5 +154,5 @@ if uploaded_file is not None:
 
 # Running the Streamlit app
 if __name__ == "__main__":
-    st.sidebar.info("Upload your WhatsApp chat zip file to generate visualizations")
+    st.sidebar.info("Upload your WhatsApp chat text file to generate visualizations")
     st.markdown("This app generates various visualizations from your WhatsApp chat data.")
