@@ -8,6 +8,8 @@ import re
 from collections import Counter
 from nltk.corpus import stopwords
 
+nltk.download('stopwords')
+
 # Function to process the uploaded file
 def process_chat(file):
     chat_text = ""
