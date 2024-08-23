@@ -48,7 +48,7 @@ def process_chat(file):
     return df
 
 # Streamlit app layout
-st.title('WhatsApp Chat Analysis')
+st.title('WhatsApp Chat Analysis Developed by Imad ud din khattak')
 
 # Instructions for downloading the WhatsApp chat ZIP file
 st.markdown("""
